@@ -1,0 +1,86 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #111;
+  overflow: hidden;
+  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/108721/beam-black-and-white-headlight-1950-825x5504Gz7U.png') no-repeat center center fixed;
+  background-size: cover;
+  transition: background-image 1s ease-in-out; /* Smooth transition for the background */
+}
+
+.intro {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease-in-out; /* Smooth transition for opacity */
+}
+
+h1 {
+  white-space: nowrap;
+  margin: 0;
+  color: #eee;
+  font-weight: 100;
+  font-family: 'Roboto', sans-serif;
+  font-size: 8em;
+  text-align: center;
+  line-height: 1.2em;
+}
+
+a {
+  font-weight: 700;
+}
+
+p {
+  color: #fff; /* White text for good contrast against a black background */
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5em; /* Adjust size as needed */
+  text-align: center; /* Center the text */
+  margin-top: 20px; /* Add space below the greeting */
+}
+
+.underline {
+  position: relative;
+  height: 4px;
+  width: 100%;
+  left: 0;
+  background-color: #eee;
+}
+
+@keyframes easein {
+  0% {
+    width: 0;
+    left: 50%;
+  }
+  100% {
+    width: 100%;
+    left: 0;
+  }
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1000px) {
+  h1 {
+    font-size: 5em;
+  }
+
+  .underline {
+    height: 2px;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.5em;
+  }
+
+  .underline {
+    height: 1px;
+  }
+}

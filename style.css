@@ -1,13 +1,57 @@
 @import url("https://fonts.googleapis.com/css2?family=poppins:wght@300;400;500;600;700;800;900&display=swap");
 
 * {
-  color: #ccc;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "poppins", sans-serif;
 }
+#prompt-overlay {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  z-index: 9999;
+}
 
+/* Style for the prompt box */
+#prompt-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the input and buttons */
+#prompt-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+#prompt-btn {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#prompt-btn:hover {
+  background-color: #45a049;
+}
 body {
   display: flex;
   justify-content: center;
@@ -15,7 +59,7 @@ body {
   min-height: 100vh;
   background: #23242a;
   overflow: hidden;
-  position: relative; /* To position elements relative to body */
+  position: relative;
 }
 
 .box {
@@ -25,7 +69,7 @@ body {
   background: #1c1c1c;
   border-radius: 8px;
   overflow: hidden;
-  z-index: 1; /* To ensure the box stays on top of the animation */
+  z-index: 1;
 }
 
 .box::before {
@@ -35,12 +79,7 @@ body {
   left: -50%;
   width: 380px;
   height: 420px;
-  background: linear-gradient(0deg,
-      transparent,
-      transparent,
-      #45f399,
-      #00a3ff,
-      #45f3ff);
+  background: linear-gradient(0deg, transparent, transparent, #45f399, #00a3ff, #45f3ff);
   z-index: 1;
   transform-origin: bottom right;
   animation: animate 6s linear infinite;
@@ -53,14 +92,7 @@ body {
   left: -50%;
   width: 380px;
   height: 420px;
-  background: linear-gradient(0deg,
-      transparent,
-      transparent,
-      transparent,
-      #45f8ff,
-      #04a322,
-      #45f8ff,
-      #45f8ff);
+  background: linear-gradient(0deg, transparent, transparent, transparent, #45f8ff, #04a322, #45f8ff, #45f8ff);
   z-index: 1;
   transform-origin: bottom right;
   animation: animate 6s linear infinite;
@@ -80,12 +112,7 @@ body {
   left: -50%;
   width: 380px;
   height: 420px;
-  background: linear-gradient(0deg,
-      transparent,
-      transparent,
-      #bb11cc,
-      #ff2770,
-      #ff2770);
+  background: linear-gradient(0deg, transparent, transparent, #bb11cc, #ff2770, #ff2770);
   z-index: 1;
   transform-origin: bottom right;
   animation: animate 6s linear infinite;
@@ -99,12 +126,7 @@ body {
   left: -50%;
   width: 380px;
   height: 420px;
-  background: linear-gradient(0deg,
-      transparent,
-      transparent,
-      blueviolet,
-      violet,
-      blueviolet);
+  background: linear-gradient(0deg, transparent, transparent, blueviolet, violet, blueviolet);
   z-index: 1;
   transform-origin: bottom right;
   animation: animate 6s linear infinite;
@@ -152,9 +174,9 @@ body {
   background: transparent;
   outline: none;
   box-shadow: none;
-  color: #fff;
+  color: #fff; /* Input text is white */
   font-size: 1em;
-  letter-spacing: 0.5em;
+  letter-spacing: 0.05em;
   transition: 0.5s;
   z-index: 10;
 }
@@ -164,7 +186,7 @@ body {
   left: 0;
   padding: 20px 10px 10px;
   pointer-events: none;
-  color: #8f8f8f;
+  color: #ffffff; /* Placeholder label text is white */
   font-size: 1em;
   letter-spacing: 0.05em;
   transition: 0.5s;
@@ -203,24 +225,37 @@ body {
 .box form .links a {
   margin: 10px;
   font-size: 0.75em;
-  color: #8f8f8f;text-decoration: none;
-  }
-  .box form .links a:hover,
-  .box form .links a:nth-child(2) {
-    color: #fff;
-  }
-  .box form input[type="submit"] {
-    border: none;
-    outline: none;
-    padding: 9px 25px;
-    background: #fff;
-    cursor: pointer;
-    font-size: 0.9em;
-    border-radius: 4px;
-    font-weight: 600;
-    width: 100px;
-    margin-top: 10px;
-  }
-  .box form input[type="submit"]:active {
-    opacity: 0.9;
-  }
+  color: #8f8f8f;
+  text-decoration: none;
+}
+
+.box form .links a:hover,
+.box form .links a:nth-child(2) {
+  color: #fff;
+}
+
+.box form input[type="submit"] {
+  border: none;
+  outline: none;
+  padding: 9px 25px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.9em;
+  border-radius: 4px;
+  font-weight: 600;
+  width: 100px;
+  margin-top: 10px;
+}
+
+.box form input[type="submit"]:active {
+  opacity: 0.9;
+}
+.error-message {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px; /* Space between password and error message */
+  font-size: 0.9em;
+  min-height: 20px; /* To prevent jumping when the message appears */
+  font-family: 'Courier New', Courier, monospace; /* Optional: make it look more like typed text */
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Login Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div id="prompt-overlay">
+    <div id="prompt-box">
+        <h2>Please enter your name</h2>
+        <input type="text" id="prompt-input" placeholder="Your name here">
+        <button id="prompt-btn">Submit</button>
+    </div>
+  </div>
+  
+  <div class="box">
+    <span class="borderLine"></span>
+    <form id="loginForm" onsubmit="validateLogin(event)">
+      <h2>Sign in</h2>
+      <div class="inputBox">
+        <input type="text" id="username" required="required">
+        <span>Username</span>
+        <i></i>
+      </div>
+      <div class="inputBox">
+        <input type="password" id="password" required="required">
+        <span>Password</span>
+        <i></i>
+      </div>
+      
+      <!-- Error message displayed below the password input -->
+      <p id="errorMessage" class="error-message"></p>
+
+      <input type="submit" value="Login"> 
+    </form>
+  </div>
+  <script src="lock.js"></script>
+  <script src="script.js"> </script><script src="voice.js"> </script>
+  <script src="indexvoice.js"> </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+

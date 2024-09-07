@@ -2,7 +2,7 @@ var numberOfEls = 1000;
 var duration = 1000;
 var midScreenX = window.innerWidth / 2;
 var midScreenY = window.innerHeight / 2;
-var radius = Math.sqrt(midScreenX * midScreenX + midScreenY * midScreenY);
+var radius = Math.sqrt(midScreenX * midScreenX + midScreenY * midScreenY) * 1.5;
 var fragment = document.createDocumentFragment();
 
 for (var i = 0; i < numberOfEls; i++) {
